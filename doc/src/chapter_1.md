@@ -60,7 +60,7 @@ impl Parse for MlFn {
 }
 ```
 
-There are 2 places where we can't just call `parse`. The first is `parse_separated_nonempty`, which tells `syn` to parse a sequence of the inner types (in this case `syn::Type`s), separated by the `->` token. The second is `args`, where we keep looking ahead for a `=` token, because we want to parse 0 or more idents followed by a `=`. The code above is ideomatic use of `syn`: all the types in `syn` use this pattern to define their parsers. To parse this we only ever have to lookahead a maximum of 1 times, meaning the parser will run fast (see [LR parsers]).
+There are 2 places where we can't just call `parse`. The first is `parse_separated_nonempty`, which tells `syn` to parse a sequence of the inner types (in this case `syn::Type`s), separated by the `->` token. The second is `args`, where we keep looking ahead for a `=` token, because we want to parse 0 or more idents followed by a `=`. The code above is ideomatic use of `syn`: all the types in `syn` use this pattern to define their parsers. To parse this we only ever have to lookahead a maximum of 1 times, meaning the parser will run fast, at least for our code (see [LR parsers], I don't know how far the `syn` code looks ahead).
 
 Now we can write our proc macro
 
