@@ -186,7 +186,7 @@ add1 a = a + 1
 }
 </code></pre>
 <p>For the moment, we're not doing any transformation on the body of the function: we are just parsing it as the inside of a Rust block, so the content of a function is just normal rust syntax for now.</p>
-<p>Next job is to implement <a href="https://docs.rs/syn/1.0.54/syn/parse/trait.Parse.html"><code>Parse</code></a> for our AST. Our input to this stage is a stream of tokens (if you're working with source directly you would need to [lex] it first). Because we made our struct represent the code we expect, parsing almost becomes just a sequence of calls to <a href="https://docs.rs/syn/1.0.54/syn/parse/trait.Parse.html"><code>parse</code></a>:</p>
+<p>Next job is to implement <a href="https://docs.rs/syn/1.0.54/syn/parse/trait.Parse.html"><code>Parse</code></a> for our AST. Our input to this stage is a stream of tokens (if you're working with source directly you would need to <a href="https://en.wikipedia.org/wiki/Lexical_analysis">lex</a> it first). Because we made our struct represent the code we expect, parsing almost becomes just a sequence of calls to <a href="https://docs.rs/syn/1.0.54/syn/parse/trait.Parse.html"><code>parse</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">impl Parse for MlFn {
     fn parse(s: ParseStream) -&gt; Result&lt;Self&gt; {
         Ok(MlFn {

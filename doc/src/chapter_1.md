@@ -202,3 +202,4 @@ The full code is available [on github][github.com/derekdreery/rust_ml]. Feel fre
 [`quote::quote`]: https://docs.rs/quote/1.0.7/quote/index.html
 [LR parsers]: https://en.wikipedia.org/wiki/LR_parser
 [github.com/derekdreery/rust_ml]: https://github.com/derekdreery/rust_ml
+[lex]: https://en.wikipedia.org/wiki/Lexical_analysis
