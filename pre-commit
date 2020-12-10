@@ -1,0 +1,6 @@
+#!/bin/sh
+pushd doc
+mdbook build
+popd
+rm -rf docs
+mv doc/book docs
