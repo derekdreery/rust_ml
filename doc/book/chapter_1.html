@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chapter 1 - Rust ML Blog</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html" class="active"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Rust ML Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#ml-syntax-for-rust-for-fun" id="ml-syntax-for-rust-for-fun">ML syntax for Rust (for fun)</a></h1>
+<p>Just for fun, and also to show off the power of rust macros, I'm going to experiment with an <a href="https://en.wikipedia.org/wiki/ML_(programming_language)">ML</a>-like (specifically <a href="https://www.haskell.org/">Haskell</a>-like) syntax for Rust. I'm going to see how far I can push it before things go wrong. To save myself the effort of writing a tokenizer, I'm going to start by using a rust proc macro, which will give me a token stream to manipulate.</p>
+<p>The first challenge is to parse our new syntax. I'm going to start with the following simple example:</p>
+<pre><code class="language-haskell">add1 :: u8 -&gt; u8
+add1 a = a + 1
+</code></pre>
+<p>To start with, I'm only going to make the parser work on 1 function at a time, otherwise I'd have to think about how to handle ambiguities, given that the rust tokenizer doesn't report whitespace. It would be nice to overcome this limitation, but I'm not sure it will be possible yet, at least in proc macros.</p>
+<p>So, for my way of approaching writing proc macros and given that we are parsing something that isn't valid rust, the first step is to define our <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">abstract syntax tree (AST)</a>. It's going to capture all parts of the syntax, including stuff that only has one value (like a <code>=</code> token), so that if we want to report errors later we can tie diagnostics to span any token. To do this, we basically write a recipe for a valid macro in terms of a sequence of objects that turns into a struct. Sometimes, there may be multiple valid sequences of tokens, and in that case we would use an enum and lookahead to decide which variant to parse. If you want to find out more about this stage (which can get a lot more technical if you want), search for <a href="https://en.wikipedia.org/wiki/Formal_grammar">&quot;formal grammar&quot;</a> on the internet.</p>
+<p>In our case, we expect a single sequence of tokens (with some simple looping for arguments) so I can use a single struct to represent the AST. My first attempt is below, and hopefully it won't be too far away from a correct one. I'll tag each bit of the struct with its corresponding source in the example above.</p>
+<pre><code class="language-rust no_run noplayground">struct MlFn {
+    // add1
+    ident: Ident,
+    // ::
+    doublec: Token![::],
+    // u8 -&gt; u8
+    types: Punctuated&lt;Type, Token![-&gt;]&gt;,
+    // add1
+    ident2: Ident,
+    // in
+    args: Vec&lt;Ident&gt;,
+    // =
+    eq: Token![=],
+    // in + 1
+    body: Block,
+}
+</code></pre>
+<p>For the moment, we're not doing any transformation on the body of the function: we are just parsing it as the inside of a Rust block, so the content of a function is just normal rust syntax for now.</p>
+<p>Next job is to implement <a href="https://docs.rs/syn/1.0.54/syn/parse/trait.Parse.html"><code>Parse</code></a> for our AST. Our input to this stage is a stream of tokens (if you're working with source directly you would need to [lex] it first). Because we made our struct represent the code we expect, parsing almost becomes just a sequence of calls to <a href="https://docs.rs/syn/1.0.54/syn/parse/trait.Parse.html"><code>parse</code></a>:</p>
+<pre><code class="language-rust no_run noplayground">impl Parse for MlFn {
+    fn parse(s: ParseStream) -&gt; Result&lt;Self&gt; {
+        Ok(MlFn {
+            ident: s.parse()?,
+            doublec: s.parse()?,
+            types: Punctuated::parse_separated_nonempty(s)?,
+            ident2: s.parse()?,
+            args: {
+                let mut args = vec![];
+                while !s.peek(Token![=]) {
+                    args.push(s.parse()?);
+                }
+                args
+            },
+            eq: s.parse()?,
+            body: s.parse()?,
+        })
+    }
+}
+</code></pre>
+<p>There are 2 places where we can't just call <code>parse</code>. The first is <code>parse_separated_nonempty</code>, which tells <code>syn</code> to parse a sequence of the inner types (in this case <code>syn::Type</code>s), separated by the <code>-&gt;</code> token. The second is <code>args</code>, where we keep looking ahead for a <code>=</code> token, because we want to parse 0 or more idents followed by a <code>=</code>. The code above is ideomatic use of <code>syn</code>: all the types in <code>syn</code> use this pattern to define their parsers. To parse this we only ever have to lookahead a maximum of 1 times, meaning the parser will run fast (see <a href="https://en.wikipedia.org/wiki/LR_parser">LR parsers</a>).</p>
+<p>Now we can write our proc macro</p>
+<pre><code class="language-rust no_run noplayground">#[proc_macro]
+pub fn rust_ml(input: TokenStream) -&gt; TokenStream {
+    let input = parse_macro_input!(input as MlFn);
+    todo!()
+}
+</code></pre>
+<p>and test it using a simple test (in <code>example</code>).</p>
+<pre><code class="language-rust no_run noplayground">use rust_ml::rust_ml;
+
+rust_ml! {
+    add1 :: u8 -&gt; u8
+    add1 a = a + 1
+}
+
+fn main() {
+    assert_eq!(add1(3), 4);
+}
+</code></pre>
+<p>Let's see how it goes...</p>
+<pre><code class="language-text">error: proc macro panicked
+ --&gt; src/main.rs:3:1
+  |
+3 | / rust_ml! {
+4 | |     add1 :: u8 -&gt; u8
+5 | |     add1 a = a + 1
+6 | | }
+  | |_^
+  |
+  = help: message: not yet implemented
+</code></pre>
+<p>Woop woop: we failed, but only because we hit our <code>todo!()</code>, meaning that we parsed the contents! :)</p>
+<p>Next up, let's actually output some code (using <a href="https://docs.rs/quote/1.0.7/quote/index.html"><code>quote::quote</code></a>):</p>
+<pre><code class="language-rust no_run noplayground">#[proc_macro]
+pub fn rust_ml(input: TokenStream) -&gt; TokenStream {
+    // parsing
+    let input = parse_macro_input!(input as MlFn);
+
+    if let Err(e) = input.check() {
+        return e.to_compile_error().into();
+    }
+
+    //panic!(&quot;{:#?}&quot;, input);
+
+    // codegen
+    let ident = &amp;input.ident;
+
+    let args = input.args();
+    let ret = input.ret();
+    let body = &amp;input.body;
+
+    quote!(
+        pub fn #ident(#(#args),*) -&gt; #ret {
+<span class="boring">            (#body)*
+</span>        }
+    )
+    .into()
+}
+</code></pre>
+<blockquote>
+<p>Actually, when I was writing this, it took me a while to get it working. For a long time I couldn't understand the error message I was getting, but then I remembered <a href="https://github.com/dtolnay/cargo-expand"><code>cargo-expand</code></a>, which very quickly showed me that I was getting the ident and the type the wrong way round for the function arguments. Always a silly mistake with me!</p>
+</blockquote>
+<p>Not too much more complicated! Ok, I cheated a bit, by assuming that we have some methods defined on <code>MlFn</code>. Let me post those below:</p>
+<pre><code class="language-rust no_run noplayground">impl MlFn {
+    /// Return an error if the input to the macro was invalid.
+    ///
+    /// TODO collect all the errors together and report them in one go.
+    fn check(&amp;self) -&gt; Result&lt;(), Error&gt; {
+        if self.ident != self.ident2 {
+            return Err(Error::new(
+                self.ident2.span(),
+                &quot;name of function in implementation doesn't match the name in declaration&quot;,
+            ));
+        }
+
+        if self.types.len() != self.args.len() + 1 {
+            return Err(Error::new(
+                self.types.span(),
+                &quot;the number of types should be 1 more than the number of args&quot;,
+            ));
+        }
+        Ok(())
+    }
+
+    /// The arguments as a sequence of token streams.
+    fn args&lt;'a&gt;(&amp;'a self) -&gt; impl Iterator&lt;Item = TokenStream2&gt; + 'a {
+        // we already checked the lengths are valid
+        let mut tys: Vec&lt;_&gt; = self.types.iter().collect();
+        tys.pop(); // lose the return type.
+        izip!(tys, &amp;self.args).map(|(ty, ident)| quote!(#ident: #ty))
+    }
+
+    /// The return value as a type.
+    fn ret(&amp;self) -&gt; Type {
+        // we already checked the lengths are valid
+        self.types.iter().last().unwrap().clone()
+    }
+}
+</code></pre>
+<p>This is where the bulk of the work happens. The <code>check</code> function's purpose is to check our code for any semantic errors, which in our case are things like the idents for the function definition and implementation not matching. We should also have exactly 1 more type argument than argument name, because there must be exactly 1 return type. We don't allow functions that don't return for now, but the user can simply add <code>-&gt; ()</code> to the end if they don't want to return a value.</p>
+<blockquote>
+<p>We don't enforce purity or even immutability: this is ML syntax but not ML semantics.</p>
+</blockquote>
+<p>You'll see that we construct a <code>syn::Error</code> object when we find some invariant that isn't upheld. In addition to the error message, this type contains a span that will be used by the compiler when reporting the error. In this way, we can produce understandable and useful diagnostics for users of our proc macro, hopefully making it as user-friendly as the compiler itself. This is why we kept all those pesky tokens in our AST.</p>
+<p>Now let's see what happens when we run the code:</p>
+<pre><code class="language-text">
+</code></pre>
+<p>Nothing. Meaning our assert passed! :)</p>
+<p>The full code is available <a href="https://github.com/derekdreery/rust_ml">on github</a>. Feel free to have a browse, with the caveat that trying to do anything useful with the code is not a good idea™.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
