@@ -1,0 +1,6 @@
+[book]
+authors = ["Richard Dodd"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Rust ML Blog"
